@@ -1,2 +1,2 @@
-//create database schema in here
-//use mongoose
+// create database schema in here
+// use mongoose
