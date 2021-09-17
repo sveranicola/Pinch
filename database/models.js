@@ -1,2 +1,2 @@
-//create database queries in here
-//use graphql
+// create database queries in here
+// use graphql
