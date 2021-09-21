@@ -5,5 +5,6 @@ import App from './components/App.jsx';
 
 ReactDOM.render(
   <App/>,
-  document.getElementById('app')
+  // eslint-disable-next-line no-undef
+  document.getElementById('app'),
 );
