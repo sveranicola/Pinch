@@ -1,5 +1,4 @@
-import React from 'react';
-import {useState} from 'react';
+import React, { useState } from 'react';
 
 const App = function() {
   return (
@@ -7,6 +6,6 @@ const App = function() {
       <h1>Welcome to our Application!</h1>
     </div>
   );
-}
+};
 
 export default App;
