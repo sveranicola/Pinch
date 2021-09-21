@@ -1,18 +1,14 @@
 name: React CI
 
 on:
-  push:
-    branches:
-      - 'dev'
-      - 'prod'
   pull_request:
     branches:
-      - 'dev'
-      - 'prod'
-
+      - dev
+      - prod
 
 jobs:
   build:
+    name: Merge Test
     runs-on: ubuntu-latest
 
     strategy:
