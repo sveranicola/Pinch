@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-const App = function() {
+function App() {
+  // eslint-disable-next-line
   const [state, setState] = useState({ state: ' ' });
 
   return (
@@ -8,6 +9,6 @@ const App = function() {
       <h1>Welcome to our Application!</h1>
     </div>
   );
-};
+}
 
 export default App;
