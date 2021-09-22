@@ -1,7 +1,9 @@
-import React from 'react';
-import {useState} from 'react';
+import React, { useState } from 'react';
 
-const App = function() {
+function App() {
+  // eslint-disable-next-line
+  const [state, setState] = useState({ state: ' ' });
+
   return (
     <div>
       <h1>Welcome to our Application!</h1>
