@@ -98,11 +98,16 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "include":[
-    "src/**/*",
-    "src/components/**/*",
+    "src/*",
+    "server/*",
+    "database/*"
   ],
   "exclude":[
-    "node_modules"
+    "node_modules",
+    "tests/*",
+    "public/*",
+    "webpack.config.js",
   ],
-  "compileOnSave":false
+  "compileOnSave":false,
+
 }
