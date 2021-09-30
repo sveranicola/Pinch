@@ -12,6 +12,7 @@ import Navbar from './SharedComponents/02.Navbar/Navbar';
 import ProtectedRoute from './ProtectedRoute';
 import Login from './03.Login/Login';
 import Settings from './04.Settings/Settings';
+import { Footer } from './SharedComponents/03.Footer/Footer';
 
 function App() {
   // eslint-disable-next-line
@@ -30,6 +31,7 @@ function App() {
           <ProtectedRoute path="/home/settings" component={Settings} />
           <Route exact path="*" component={NotFound} />
         </Switch>
+        <Footer />
       </div>
     </BrowserRouter>
   );
