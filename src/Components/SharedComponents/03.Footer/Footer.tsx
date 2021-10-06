@@ -4,11 +4,21 @@ interface Props {
 }
 
 const Footer: React.FC<Props> = () => {
-  const text = 'I am the footer bitch ass shit';
+  const text = '2021 Pinch | 1.0.0';
 
   return (
     <div>
-      {text}
+      <div>
+        <div>About Pinch</div>
+        <div>Privacy</div>
+        <div>Help</div>
+        <div>Terms of Use</div>
+        <div>FAQ</div>
+        <div>Contact Us</div>
+      </div>
+      <div>
+        {text}
+      </div>
     </div>
   );
 };

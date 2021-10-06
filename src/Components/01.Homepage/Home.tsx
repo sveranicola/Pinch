@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Footer from '../SharedComponents/03.Footer/Footer';
+import AboutUs from './AboutUs';
 import ToolsOffered from './ToolsOffered';
 
 function Home() {
@@ -8,10 +8,8 @@ function Home() {
       <div>
         This is the Home page
       </div>
+      <AboutUs />
       <ToolsOffered />
-      <div>
-        {Footer}
-      </div>
     </>
   );
 }
