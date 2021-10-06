@@ -1,13 +1,16 @@
 import * as React from 'react';
 
-interface props {
-  props: any
+interface Props {
 }
 
-export const Footer: React.FC<props> = ({}) => {
+export const Footer: React.FC<Props> = () => {
+  console.log('boo typescript');
+
   return (
     <div>
       I am the Footer
     </div>
   );
 };
+
+export default Footer;
