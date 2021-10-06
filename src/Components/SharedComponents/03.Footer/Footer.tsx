@@ -3,12 +3,12 @@ import * as React from 'react';
 interface Props {
 }
 
-export const Footer: React.FC<Props> = () => {
-  console.log('boo typescript');
+const Footer: React.FC<Props> = () => {
+  const text = 'I am the footer bitch ass shit';
 
   return (
     <div>
-      I am the Footer
+      {text}
     </div>
   );
 };
