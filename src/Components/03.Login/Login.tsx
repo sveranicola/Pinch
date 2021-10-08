@@ -4,7 +4,6 @@ import { RouteComponentProps } from 'react-router-dom';
 import axios from 'axios';
 // import ApolloClient from 'apollo-boost';
 // import { ApolloProvider } from '@apollo/client';
-// import auth from '../../auth/auth';
 
 interface OverviewProps extends RouteComponentProps<{ name: string }> {
 
@@ -44,14 +43,10 @@ function Login(props: OverviewProps) {
     }`,
     }), { headers })
       .then((response) => {
-        // eslint-disable-next-line no-console
-        console.log('response', response);
         const error = response.data.errors;
         setErr(error);
       })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.log(error);
+      .catch(() => {
       });
   };
 
