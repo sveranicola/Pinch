@@ -1,4 +1,5 @@
 import * as React from 'react';
+import AboutUs from './AboutUs';
 import ToolsOffered from './ToolsOffered';
 
 function Home() {
@@ -7,6 +8,7 @@ function Home() {
       <div>
         This is the Home page
       </div>
+      <AboutUs />
       <ToolsOffered />
     </>
   );

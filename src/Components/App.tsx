@@ -16,6 +16,7 @@ import Navbar from './SharedComponents/02.Navbar/Navbar';
 import ProtectedRoute from './SharedComponents/04.ProtectedRoute/ProtectedRoute';
 import Login from './03.Login/Login';
 import Settings from './04.Settings/Settings';
+import Footer from './SharedComponents/03.Footer/Footer';
 import Goals from './06.Goals/Goals';
 import BudgetBreakdown from './07.BudgetBreakdown/BudgetBreakdown';
 import Subscriptions from './08.Subscriptions/Subscriptions';
@@ -63,6 +64,7 @@ function App() {
           <ProtectedRoute path="/home/credit" component={CreditPayments} authenticated={authenticated} />
           <Route exact path="*" component={NotFound} />
         </Switch>
+        <Footer />
       </div>
     </HashRouter>
   );

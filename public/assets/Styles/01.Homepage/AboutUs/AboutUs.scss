@@ -1,0 +1,13 @@
+.AboutUs {
+  background-color: #f4f4f4;
+  font-family: 'Roboto';
+  display: flex;
+  flex-direction: row;
+  .ABimg {
+    width: 200px;
+    height: 200px;
+  }
+  .description {
+    width: 600px;
+  }
+}

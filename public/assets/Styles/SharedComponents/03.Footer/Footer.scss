@@ -1,0 +1,14 @@
+.Footer {
+  background-color: #676767;
+  font-family: 'Roboto';
+  .linksRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .theCenter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
