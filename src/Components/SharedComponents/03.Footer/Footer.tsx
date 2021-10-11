@@ -12,7 +12,7 @@ function Footer() {
         <div>Contact Us</div>
       </div>
       <div className="the-center">
-        2021 Pinch | 1.0.0
+        2021 Pinch | 1.0.1
       </div>
     </div>
   );
