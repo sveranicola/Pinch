@@ -1,16 +1,11 @@
 import * as React from 'react';
 
-interface Props {
-}
-
-const AboutUs: React.FC<Props> = () => {
-  const header = 'What is Pinch?';
-
+function AboutUs () {
   return (
-    <div className="AboutUs">
-      <img src="/assets/images/noimageavailable.jpg" alt="Visual of the front page" className="ABimg" />
+    <div className="about-us">
+      <img src="/assets/images/noimageavailable.jpg" alt="Visual of the front page" className="ab-img" />
       <div className="description">
-        {header}
+        <h2>What is Pinch?</h2>
         <p>Pinch is a personal finance site that helps you keep track of all your</p>
         <p>financial needs. Our mission is to help you pinch all the pennies you</p>
         <p>can while also making the process as simple as possible. No need</p>
@@ -18,6 +13,6 @@ const AboutUs: React.FC<Props> = () => {
       </div>
     </div>
   );
-};
+}
 
 export default AboutUs;

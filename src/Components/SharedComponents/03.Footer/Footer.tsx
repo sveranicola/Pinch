@@ -1,14 +1,9 @@
 import * as React from 'react';
 
-interface Props {
-}
-
-const Footer: React.FC<Props> = () => {
-  const text = '2021 Pinch | 1.0.0';
-
+function Footer() {
   return (
-    <div className="Footer">
-      <div className="linksRow">
+    <div className="footer">
+      <div className="links-row">
         <div>About Pinch</div>
         <div>Privacy</div>
         <div>Help</div>
@@ -16,11 +11,11 @@ const Footer: React.FC<Props> = () => {
         <div>FAQ</div>
         <div>Contact Us</div>
       </div>
-      <div className="theCenter">
-        {text}
+      <div className="the-center">
+        2021 Pinch | 1.0.0
       </div>
     </div>
   );
-};
+}
 
 export default Footer;
