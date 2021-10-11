@@ -7,8 +7,8 @@ const Footer: React.FC<Props> = () => {
   const text = '2021 Pinch | 1.0.0';
 
   return (
-    <div>
-      <div>
+    <div className="footer">
+      <div className="linksRow">
         <div>About Pinch</div>
         <div>Privacy</div>
         <div>Help</div>
