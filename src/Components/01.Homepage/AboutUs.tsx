@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function AboutUs () {
+function AboutUs() {
   return (
     <div className="about-us">
       <img src="/assets/images/noimageavailable.jpg" alt="Visual of the front page" className="ab-img" />
