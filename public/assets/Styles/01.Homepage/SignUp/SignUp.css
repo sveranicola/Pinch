@@ -1,46 +1,3 @@
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-img {
-  width: 50px;
-  height: 50px;
-}
-
-.tools-offered {
-  background-color: #f4f4f4;
-  font-family: "Roboto";
-}
-
-.tools-offered img {
-  width: 100px;
-  height: 100px;
-}
-
-.about-us {
-  background-color: #f4f4f4;
-  font-family: 'Roboto';
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.about-us .ab-img {
-  width: 200px;
-  height: 200px;
-}
-
-.about-us .description {
-  width: 600px;
-}
-
 .sign-up {
   background-color: #D1E0DE;
   font-family: 'Roboto';
@@ -79,7 +36,7 @@ img {
 }
 
 .sign-up .underline {
-  border-bottom: solid #696969 5px;
+  border-bottom: solid #696969 3px;
 }
 
 .sign-up .column-description {
@@ -94,4 +51,4 @@ img {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
-/*# sourceMappingURL=Homepage.css.map */
+/*# sourceMappingURL=SignUp.css.map */
