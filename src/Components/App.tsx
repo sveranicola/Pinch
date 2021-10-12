@@ -17,6 +17,7 @@ import ProtectedRoute from './SharedComponents/04.ProtectedRoute/ProtectedRoute'
 import Login from './03.Login/Login';
 import Settings from './04.Settings/Settings';
 import Footer from './SharedComponents/03.Footer/Footer';
+import Header from './SharedComponents/01.Header/Header';
 import Goals from './06.Goals/Goals';
 import BudgetBreakdown from './07.BudgetBreakdown/BudgetBreakdown';
 import Subscriptions from './08.Subscriptions/Subscriptions';
@@ -48,21 +49,24 @@ function App() {
   return (
     <HashRouter>
       <div>
-        <h1>Welcome to our Application!</h1>
-        {showNav
-          ? <Navbar />
-          : null }
         <Switch>
-          <ProtectedRoute path="/home/overview" component={Overview} authenticated={authenticated} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
-          <ProtectedRoute path="/home/settings" component={Settings} authenticated={authenticated} />
-          <ProtectedRoute path="/home/goals" component={Goals} authenticated={authenticated} />
-          <ProtectedRoute path="/home/budget" component={BudgetBreakdown} authenticated={authenticated} />
-          <ProtectedRoute path="/home/subscriptions" component={Subscriptions} authenticated={authenticated} />
-          <ProtectedRoute path="/home/credit" component={CreditPayments} authenticated={authenticated} />
-          <Route exact path="*" component={NotFound} />
+          <div>
+            <Header />
+            <Navbar />
+            {showNav
+              ? <Navbar />
+              : null}
+            <ProtectedRoute path="/home/overview" component={Overview} authenticated={authenticated} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+            <ProtectedRoute path="/home/settings" component={Settings} authenticated={authenticated} />
+            <ProtectedRoute path="/home/goals" component={Goals} authenticated={authenticated} />
+            <ProtectedRoute path="/home/budget" component={BudgetBreakdown} authenticated={authenticated} />
+            <ProtectedRoute path="/home/subscriptions" component={Subscriptions} authenticated={authenticated} />
+            <ProtectedRoute path="/home/credit" component={CreditPayments} authenticated={authenticated} />
+            <Route exact path="*" component={NotFound} />
+          </div>
         </Switch>
         <Footer />
       </div>
