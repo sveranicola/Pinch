@@ -20,7 +20,7 @@ img {
   height: 100px;
 }
 
-.AboutUs {
+.about-us {
   background-color: #f4f4f4;
   font-family: 'Roboto';
   display: -webkit-box;
@@ -32,12 +32,12 @@ img {
           flex-direction: row;
 }
 
-.AboutUs .ABimg {
+.about-us .ab-img {
   width: 200px;
   height: 200px;
 }
 
-.AboutUs .description {
+.about-us .description {
   width: 600px;
 }
 /*# sourceMappingURL=Homepage.css.map */
