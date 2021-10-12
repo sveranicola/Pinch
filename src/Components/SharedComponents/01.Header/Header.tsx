@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className="header">
       <div className="header-logo">
-        <img src="/public/assets/Images/logo.png" alt="logo"/>
+        <img src="/public/assets/Images/logo.png" alt="logo" />
       </div>
       <div className="header-contents">
         <Link id="link" to="/profile">Profile</Link>
