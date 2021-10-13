@@ -12,12 +12,12 @@
     margin: 2%;
   }
   .description {
+    width: 50%;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     color: #696969;
     font-size: 1.3em;
-    width: 50%;
-    height: 250px;
   }
 }

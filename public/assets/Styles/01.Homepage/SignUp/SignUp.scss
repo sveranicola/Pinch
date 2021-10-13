@@ -5,13 +5,14 @@
   font-size: 1.5em;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   margin-top: 40px;
   margin-bottom: 40px;
+
   .container-logo-words {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
   }
   .logo-smoll {
     width: 200px;
@@ -20,6 +21,7 @@
     margin-bottom: 10px;
   }
   .column-words {
+    height: 250px;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -42,7 +44,7 @@
   .make-the-button-center {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   .button-sign-up {
     width: 400px;
