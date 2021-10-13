@@ -1,5 +1,6 @@
 import * as React from 'react';
 import AboutUs from './AboutUs';
+import SignUp from './SignUp';
 import ToolsOffered from './ToolsOffered';
 
 function Home() {
@@ -10,6 +11,7 @@ function Home() {
       </div>
       <AboutUs />
       <ToolsOffered />
+      <SignUp />
     </>
   );
 }
