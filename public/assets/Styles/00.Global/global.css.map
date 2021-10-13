@@ -5,8 +5,12 @@
         "global.scss",
         "../01.Homepage/Homepage.scss",
         "../01.Homepage/ToolsOffered/_ToolsOffered.scss",
+<<<<<<< HEAD
         "../01.Homepage/AboutUs/AboutUs.scss",
         "../SharedComponents/03.Footer/Footer.scss",
+=======
+        "../02.Signup/Signup.scss",
+>>>>>>> cd6b6f4707b7f86dc61fdb47a57cc4eee615ed81
         "../03.Login/Login.scss",
         "../SharedComponents/01.Header/Header.scss"
     ],

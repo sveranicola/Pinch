@@ -1,12 +1,11 @@
 @import '../01.Homepage/Homepage.scss';
-@import '../SharedComponents/03.Footer/Footer.scss';
+@import "../02.Signup/Signup.scss";
 @import "../03.Login/Login.scss";
 @import "../SharedComponents/01.Header/Header.scss";
+@import '../SharedComponents/03.Footer/Footer.scss';
 
 body,
 html {
   padding: 0;
   margin: 0;
-  overflow-y: hidden;
-  overflow-x: hidden;
 }
