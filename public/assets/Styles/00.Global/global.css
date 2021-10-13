@@ -53,20 +53,35 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.sign-up .container-logo-words {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .sign-up .logo-smoll {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .sign-up .column-words {
-  width: 500px;
+  width: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,7 +94,8 @@ img {
 }
 
 .sign-up .underline {
-  border-bottom: solid #696969 5px;
+  border-bottom: solid #696969 3px;
+  padding-bottom: 5px;
 }
 
 .sign-up .column-description {
@@ -93,6 +109,45 @@ img {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  padding-bottom: 10px;
+}
+
+.sign-up .pargaph-size {
+  font-size: 1em;
+}
+
+.sign-up .make-the-button-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.sign-up .button-sign-up {
+  width: 400px;
+  background-color: #1EB2AA;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.3em;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.sign-up .button-sign-up:hover {
+  background-color: white;
+  color: #1EB2AA;
 }
 
 .footer {
@@ -464,7 +519,5 @@ body,
 html {
   padding: 0;
   margin: 0;
-  overflow-y: hidden;
-  overflow-x: hidden;
 }
 /*# sourceMappingURL=global.css.map */
