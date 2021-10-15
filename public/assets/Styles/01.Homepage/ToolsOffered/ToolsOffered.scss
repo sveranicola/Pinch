@@ -9,9 +9,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
   width: 100%;
   height: 1300px;
+  margin-top: 40px;
+  .tools {
+    float: left;
+    width: 45%;
+    margin-left: 5%;
+    color: #696969;
+    border-bottom: solid #696969 3px;
+  }
   .tool-slot {
     display: flex;
     flex-direction: row;

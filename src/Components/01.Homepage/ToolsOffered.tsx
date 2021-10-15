@@ -3,9 +3,8 @@ import * as React from 'react';
 function ToolsOffered() {
   return (
     <div className="tools-offered">
-      <h2>Tools we offer</h2>
+      <h2 className="tools">Tools we offer</h2>
       <div className="tool-slot">
-        <img src="/assets/images/noimageavailable.jpg" alt="Visual of the goals tracker" className="example-image" />
         <div className="about-tool">
           <h2>Goals</h2>
           <p>Our Savings Goal tool makes saving easier by keeping track of the money</p>
@@ -14,8 +13,10 @@ function ToolsOffered() {
           <p>savings rate. You will also get text notification when the savings reach</p>
           <p>milestones.</p>
         </div>
+        <img src="/assets/images/noimageavailable.jpg" alt="Visual of the goals tracker" className="example-image" />
       </div>
       <div className="tool-slot">
+        <img src="/assets/images/noimageavailable.jpg" alt="Visual of the subscriptions tracker" className="example-image" />
         <div className="about-tool">
           <h2>Subscriptions Tracker</h2>
           <p>Keeping track of all our subscriptions can be a hasssle. This tools allows you to</p>
@@ -23,23 +24,22 @@ function ToolsOffered() {
           <p>connected bank accounts. You can also see historic prices for that subscription</p>
           <p>which helps you decide if you want to keep it overtime.</p>
         </div>
-        <img src="/assets/images/noimageavailable.jpg" alt="Visual of the subscriptions tracker" className="example-image" />
       </div>
       <div className="tool-slot">
-        <img src="/assets/images/noimageavailable.jpg" alt="Visual of the budget tracker" className="example-image" />
         <div className="about-tool">
           <h2>Budget Breakdown</h2>
           <p>some words</p>
           <p>will go here</p>
         </div>
+        <img src="/assets/images/noimageavailable.jpg" alt="Visual of the budget tracker" className="example-image" />
       </div>
       <div className="tool-slot">
+        <img src="/assets/images/noimageavailable.jpg" alt="Visual of the credit payment" className="example-image" />
         <div className="about-tool">
           <h2>Credit Payments</h2>
           <p>some words</p>
           <p>will go here</p>
         </div>
-        <img src="/assets/images/noimageavailable.jpg" alt="Visual of the credit payment" className="example-image" />
       </div>
     </div>
   );
