@@ -55,7 +55,6 @@ function App() {
           <Route exact path="/signup" component={SignUp} />
           <div>
             <Header />
-            <Navbar />
             {showNav
               ? <Navbar />
               : null}
