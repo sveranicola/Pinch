@@ -15,6 +15,12 @@
       justify-content: space-around;
 }
 
+@media screen and (max-width: 457px) {
+  .footer {
+    height: 300px;
+  }
+}
+
 .footer .links-row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -25,6 +31,21 @@
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+@media screen and (max-width: 457px) {
+  .footer .links-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    text-align: center;
+  }
 }
 
 .footer .the-center {
