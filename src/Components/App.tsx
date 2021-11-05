@@ -29,7 +29,8 @@ function App() {
   // eslint-disable-next-line
   const [state, setState] = useState({ state: ' ' });
   const [authenticated, setAuth] = useState<boolean>(true);
-  const [showNav, setNav] = useState<boolean>(true); // make sure to make these false when done
+  // const [user, setUser] = useState<any>();
+  const [showNav, setNav] = useState<boolean>(true); // make sure to makethese false when done
 
   const verifyAuth = () => {
     axios.get('/graphql?query={authenticated{id}}')
