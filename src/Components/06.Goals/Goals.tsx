@@ -3,8 +3,16 @@ import { FaRegEdit } from 'react-icons/fa';
 import { GrClose } from 'react-icons/gr';
 import { BsPiggyBank } from 'react-icons/bs';
 import { IoIosAddCircleOutline } from 'react-icons/io';
+import GoalsList from './GoalsList';
+import exampleGoals from './exampleGoals';
 
 function Goals() {
+  const [currentGoals, updateGoals] = React.useState<any>([]);
+
+  React.useEffect(() => {
+    updateGoals(exampleGoals.getuserinfo.goals);
+  }, []);
+
   return (
     <div className="goals-page">
       <div className="goals-list">
@@ -16,6 +24,11 @@ function Goals() {
         </div>
         <div>
           goals end up here
+          {currentGoals.map((goal: any) => (
+            <div key={goal.name}>
+              <GoalsList {...goal} />
+            </div>
+          ))}
         </div>
         <div className="add-new">
           <div>
