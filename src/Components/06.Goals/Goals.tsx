@@ -5,13 +5,34 @@ import { BsPiggyBank } from 'react-icons/bs';
 import { IoIosAddCircleOutline } from 'react-icons/io';
 import GoalsList from './GoalsList';
 import exampleGoals from './exampleGoals';
+import GoalChart from './GoalChart';
 
 function Goals() {
-  const [currentGoals, updateGoals] = React.useState<any>([]);
+  const [currentGoals, updateGoals] = React.useState<any>([
+    {
+      name: 'Goal Name here',
+      goalAmount: 100.00,
+      currentAmount: 80.00,
+      description: 'Your Description here',
+    },
+  ]);
+  const [userPickedGoal, pickedGoal] = React.useState<any>({
+    name: 'Goal Name here',
+    goalAmount: 100.00,
+    currentAmount: 80.00,
+    description: 'Your Description here',
+  });
 
   React.useEffect(() => {
-    updateGoals(exampleGoals.getuserinfo.goals);
+    if (exampleGoals.getuserinfo.goals.length > 0) {
+      updateGoals(exampleGoals.getuserinfo.goals);
+      pickedGoal(exampleGoals.getuserinfo.goals[0]);
+    }
   }, []);
+
+  function abrakadabra(data: any) {
+    pickedGoal(data);
+  }
 
   return (
     <div className="goals-page">
@@ -25,7 +46,7 @@ function Goals() {
         <div>
           goals end up here
           {currentGoals.map((goal: any) => (
-            <div key={goal.name}>
+            <div key={goal.name} role="button" tabIndex={0} onClick={() => abrakadabra(goal)} onKeyPress={() => abrakadabra(goal)}>
               <GoalsList {...goal} />
             </div>
           ))}
@@ -40,7 +61,7 @@ function Goals() {
       <div className="goals-analytics">
         <div className="current-goal-title">
           <div>
-            GOAL NAME
+            {userPickedGoal.name}
           </div>
           <div className="icon-style">
             <FaRegEdit size={25} color="#696969" />
@@ -49,7 +70,13 @@ function Goals() {
         </div>
         <div className="chart-space">
           <div className="description">
-            Description
+            <div>
+              Description
+            </div>
+            <div>
+              {userPickedGoal.description}
+            </div>
+            <GoalChart {...userPickedGoal} />
           </div>
           <div className="forecast">
             Forecast
