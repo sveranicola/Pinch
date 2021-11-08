@@ -330,6 +330,74 @@
   height: 22px;
 }
 
+.signup-credentials-div .loader {
+  color: #ffffff;
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 55px auto;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  -webkit-box-shadow: inset 0 0 0 1em;
+          box-shadow: inset 0 0 0 1em;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.signup-credentials-div .loader:before,
+.signup-credentials-div .loader:after {
+  position: absolute;
+  content: "";
+}
+
+.signup-credentials-div .loader:before {
+  width: 5.2em;
+  height: 10.2em;
+  background: #0dc5c1;
+  border-radius: 10.2em 0 0 10.2em;
+  top: -0.1em;
+  left: -0.1em;
+  -webkit-transform-origin: 5.1em 5.1em;
+  transform-origin: 5.1em 5.1em;
+  -webkit-animation: load2 2s infinite ease 1.5s;
+  animation: load2 2s infinite ease 1.5s;
+}
+
+.signup-credentials-div .loader:after {
+  width: 5.2em;
+  height: 10.2em;
+  background: #0dc5c1;
+  border-radius: 0 10.2em 10.2em 0;
+  top: -0.1em;
+  left: 4.9em;
+  -webkit-transform-origin: 0.1em 5.1em;
+  transform-origin: 0.1em 5.1em;
+  -webkit-animation: load2 2s infinite ease;
+  animation: load2 2s infinite ease;
+}
+
+@-webkit-keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .signup-credentials-div .signin-signup-btn {
   width: 75%;
   padding: 12px;
@@ -459,10 +527,10 @@
   font-size: 20px;
   outline: none;
   color: #5d5d5d;
-  -webkit-transition: border-color ease .25s, -webkit-box-shadow ease .25s;
-  transition: border-color ease .25s, -webkit-box-shadow ease .25s;
-  transition: box-shadow ease .25s, border-color ease .25s;
-  transition: box-shadow ease .25s, border-color ease .25s, -webkit-box-shadow ease .25s;
+  -webkit-transition: border-color ease 0.25s, -webkit-box-shadow ease 0.25s;
+  transition: border-color ease 0.25s, -webkit-box-shadow ease 0.25s;
+  transition: box-shadow ease 0.25s, border-color ease 0.25s;
+  transition: box-shadow ease 0.25s, border-color ease 0.25s, -webkit-box-shadow ease 0.25s;
 }
 
 .react-tel-input .form-control:hover {
@@ -489,7 +557,7 @@
 }
 
 .react-tel-input .form-control.invalid-number + div:before {
-  content: 'Error';
+  content: "Error";
   display: none;
   color: #f44336;
   width: 27px;
@@ -513,7 +581,7 @@
 
 .react-tel-input input[disabled] + .flag-dropdown:hover {
   cursor: default;
-  border-color: #CACACA;
+  border-color: #cacaca;
 }
 
 .react-tel-input input[disabled] + .flag-dropdown:hover .selected-flag {
@@ -645,7 +713,7 @@
 
 .react-tel-input .country-list .no-entries-message {
   padding: 7px 10px 11px;
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .react-tel-input .invalid-number-message {

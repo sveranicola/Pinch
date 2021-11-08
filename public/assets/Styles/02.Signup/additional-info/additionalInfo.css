@@ -31,6 +31,24 @@
   }
 }
 
+@media screen and (max-width: 2800px) {
+  .additional-info-container {
+    padding-top: 4em;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  .additional-info-container {
+    padding-top: 3em;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .additional-info-container {
     -webkit-box-pack: start;

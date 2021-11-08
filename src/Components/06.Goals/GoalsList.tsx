@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { FaRegEdit } from 'react-icons/fa';
 import { GrClose } from 'react-icons/gr';
 
 interface ListProps {
@@ -37,7 +36,6 @@ function GoalsList(props: ListProps) {
         </div>
       </div>
       <div className="icons-edit-delete">
-        <FaRegEdit size={25} color="#696969" />
         <GrClose size={25} color="#696969" />
       </div>
     </div>
