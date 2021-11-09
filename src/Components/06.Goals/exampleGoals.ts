@@ -20,12 +20,6 @@ const exampleGoals = {
         currentAmount: 517.83,
         description: '123ABC',
       },
-      {
-        name: 'THE STRIPPY',
-        goalAmount: 100000.00,
-        currentAmount: 13517.83,
-        description: '123ABC',
-      },
     ],
   },
 };
