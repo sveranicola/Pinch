@@ -34,6 +34,11 @@ function AddGoalModal(props: openclose) {
       .then((result) => result)
       .catch((error) => { throw (error); });
 
+    updateName(null);
+    updateGoal(null);
+    updateCurrent(null);
+    updateDescription(null);
+
     handleClose();
   }
 

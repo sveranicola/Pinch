@@ -1,29 +1,21 @@
+// Import technologies
 import * as React from 'react';
 import axios from 'axios';
-// import { FaRegEdit } from 'react-icons/fa';
+// Import icons
+import { FaRegEdit } from 'react-icons/fa';
 import { GrClose } from 'react-icons/gr';
 import { BsPiggyBank } from 'react-icons/bs';
 import { IoIosAddCircleOutline } from 'react-icons/io';
-import GoalsList from './GoalsList';
-// import exampleGoals from './exampleGoals';
-import GoalChart from './GoalChart';
-import AddGoalModal from './AddGoalModal';
+// Import helper Components
+import GoalsList from './Components/GoalsList';
+import GoalChart from './Components/GoalChart';
+import AddGoalModal from './Components/AddGoalModal';
+import exampleGoals from './Components/exampleGoals';
 
 function Goals() {
-  const [currentGoals, updateGoals] = React.useState<any>([
-    {
-      name: 'Goal Name here',
-      goalAmount: 100.00,
-      currentAmount: 80.00,
-      description: 'Your Description here',
-    },
-  ]);
-  const [userPickedGoal, pickedGoal] = React.useState<any>({
-    name: 'Goal Name here',
-    goalAmount: 100.00,
-    currentAmount: 80.00,
-    description: 'Your Description here',
-  });
+  // State
+  const [currentGoals, updateGoals] = React.useState<any>([]);
+  const [userPickedGoal, pickedGoal] = React.useState<any>({});
   const [show, updateShow] = React.useState<boolean>(false);
   const [addby, updateNumber] = React.useState<any>();
 
@@ -46,6 +38,9 @@ function Goals() {
         if (result.data.data.getUserInfo.goals.length > 0) {
           updateGoals(result.data.data.getUserInfo.goals);
           pickedGoal(result.data.data.getUserInfo.goals[0]);
+        } else {
+          updateGoals(exampleGoals.getUserInfo.goals);
+          pickedGoal(exampleGoals.getUserInfo.goals[0]);
         }
       })
       .catch((error) => { throw (error); });
@@ -58,7 +53,7 @@ function Goals() {
   function handleClose() {
     updateShow(false);
   }
-  console.log(typeof addby);
+  console.log(addby);
 
   function handleDelete(goalName: string) {
     const headers = { 'Content-Type': 'application/json' };
@@ -106,7 +101,7 @@ function Goals() {
             {userPickedGoal.name}
           </div>
           <div className="icon-style">
-            {/* <FaRegEdit size={25} color="#696969" /> */}
+            <FaRegEdit size={25} color="#696969" />
             <div role="button" tabIndex={0} onClick={() => handleDelete(userPickedGoal.name)} onKeyPress={() => handleDelete(userPickedGoal.name)}>
               <GrClose size={25} color="#696969" />
             </div>
