@@ -31,7 +31,8 @@
 .a-goal .name-bar .status-bar-back {
   height: 20px;
   width: 90%;
-  background-color: #696969;
+  background-color: white;
+  border: 1px solid #696969;
   border-radius: 10px;
 }
 

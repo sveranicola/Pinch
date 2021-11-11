@@ -1,4 +1,5 @@
 import * as React from 'react';
+import axios from 'axios';
 
 interface openclose {
   handleClose: any,
@@ -14,8 +15,24 @@ function AddGoalModal(props: openclose) {
   const [description, updateDescription] = React.useState<any>();
 
   function submitGoal() {
-    // axios here
-    console.log(name, description, goal, current);
+    const goalSG = parseFloat(goal);
+    const currentSG = parseFloat(current);
+    const headers = { 'Content-Type': 'application/json' };
+
+    axios.post('/graphql',
+      JSON.stringify({
+        query: `mutation {
+        createGoal( id: "618a8a5b6dd51820651700f5"
+        name: "${name}"
+        currentAmount: ${currentSG}
+        goalAmount: ${goalSG}
+        description: "${description}") {
+          currentAmount
+        }
+        }`,
+      }), { headers })
+      .then((result) => result)
+      .catch((error) => { throw (error); });
 
     handleClose();
   }

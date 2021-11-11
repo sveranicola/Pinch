@@ -1,9 +1,11 @@
 import * as React from 'react';
+import axios from 'axios';
+// import { FaRegEdit } from 'react-icons/fa';
 import { GrClose } from 'react-icons/gr';
 import { BsPiggyBank } from 'react-icons/bs';
 import { IoIosAddCircleOutline } from 'react-icons/io';
 import GoalsList from './GoalsList';
-import exampleGoals from './exampleGoals';
+// import exampleGoals from './exampleGoals';
 import GoalChart from './GoalChart';
 import AddGoalModal from './AddGoalModal';
 
@@ -26,10 +28,27 @@ function Goals() {
   const [addby, updateNumber] = React.useState<any>();
 
   React.useEffect(() => {
-    if (exampleGoals.getuserinfo.goals.length > 0) {
-      updateGoals(exampleGoals.getuserinfo.goals);
-      pickedGoal(exampleGoals.getuserinfo.goals[0]);
-    }
+    const headers = { 'Content-Type': 'application/json' };
+    axios.post('/graphql',
+      JSON.stringify({
+        query: `query { getUserInfo(id: "618a8a5b6dd51820651700f5") {
+          id
+          goals {
+            name
+            currentAmount
+            goalAmount
+            description
+          }
+          }
+        }`,
+      }), { headers })
+      .then((result) => {
+        if (result.data.data.getUserInfo.goals.length > 0) {
+          updateGoals(result.data.data.getUserInfo.goals);
+          pickedGoal(result.data.data.getUserInfo.goals[0]);
+        }
+      })
+      .catch((error) => { throw (error); });
   }, []);
 
   function abrakadabra(data: any) {
@@ -40,6 +59,21 @@ function Goals() {
     updateShow(false);
   }
   console.log(typeof addby);
+
+  function handleDelete(goalName: string) {
+    const headers = { 'Content-Type': 'application/json' };
+    axios.post('/graphql',
+      JSON.stringify({
+        query: `mutation { deleteGoal(
+        id: "618a8a5b6dd51820651700f5"
+        goalName: "${goalName}") {
+          lastName
+          }
+        }`,
+      }), { headers })
+      .then((result) => result)
+      .catch((error) => { throw (error); });
+  }
 
   return (
     <div className="goals-page">
@@ -72,7 +106,10 @@ function Goals() {
             {userPickedGoal.name}
           </div>
           <div className="icon-style">
-            <GrClose size={25} color="#696969" />
+            {/* <FaRegEdit size={25} color="#696969" /> */}
+            <div role="button" tabIndex={0} onClick={() => handleDelete(userPickedGoal.name)} onKeyPress={() => handleDelete(userPickedGoal.name)}>
+              <GrClose size={25} color="#696969" />
+            </div>
           </div>
         </div>
         <div className="chart-space">
