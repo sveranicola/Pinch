@@ -12,13 +12,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-<<<<<<< HEAD
-  height: 120px;
-  .header-logo {
-    margin-left: 10px;
-    width: 210px;
-    height: 100px;
-=======
   height: 110px;
   width: 100%;
   font-family: "Avenir";
@@ -57,17 +50,10 @@
       width: 100px;
       height: 45px;
     }
->>>>>>> 553f4941f1fee902f4d9c517e67f1eef5200da1c
   }
   .header-contents {
     display: flex;
     flex-direction: row;
-<<<<<<< HEAD
-    justify-content: space-around;
-    width: 300px;
-    align-items: center;
-    margin-right: 10px;
-=======
     justify-content: space-between;
     width: 25%;
     align-items: center;
@@ -98,18 +84,14 @@
       justify-content: space-evenly;
       margin-right: 0;
     }
->>>>>>> 553f4941f1fee902f4d9c517e67f1eef5200da1c
     .link {
       color: #FFFFFF;
       text-decoration: none;
       font-size: 1.2em;
-<<<<<<< HEAD
-=======
       transition: 0.1s ease-in;
       &:hover {
         color: #117973;
       }
->>>>>>> 553f4941f1fee902f4d9c517e67f1eef5200da1c
     }
   }
 }
