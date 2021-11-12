@@ -1,6 +1,3 @@
-// create database schema in here
-// use mongoose
-
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
@@ -35,12 +32,27 @@ const questionSchema = new Schema({
   },
 });
 
-const goalSchema = new Schema({
+const budgetSchema = new Schema({
   name: {
     type: String,
     required: true,
   },
   amount: {
+    type: Number,
+    required: true,
+  },
+});
+
+const goalSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  currentAmount: {
+    type: Number,
+    required: true,
+  },
+  goalAmount: {
     type: Number,
     required: true,
   },
@@ -50,44 +62,15 @@ const goalSchema = new Schema({
   },
 });
 
-const budgetSchema = new Schema({
-  income: {
-    type: Number,
-    required: true,
-  },
-  rent: {
-    type: Number,
-    required: true,
-  },
-  groceries: {
-    type: Number,
-    required: true,
-  },
-  expenses: [{
-    name: {
-      type: String,
-      required: true,
-    },
-    amount: {
-      type: Number,
-      required: true,
-    },
-  }],
-  expenses1: {
-    type: Map,
-    of: Number,
-  },
-});
-
 const subscriptionSchema = new Schema({
   currentCost: Number,
   yearCost: Number,
-  type: String,
+  companyName: String,
   billDate: Date,
-  history: [{
-    date: Date,
-    cost: Number,
-  }],
+  // history: [{
+  //   date: Date,
+  //   cost: Number,
+  // }],
 });
 
 const userSchema = new Schema({
@@ -95,19 +78,19 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minLength: 1,
-    maxLength: 10,
+    maxLength: 20,
   },
   lastName: {
     type: String,
     required: true,
     minLength: 1,
-    maxLength: 10,
+    maxLength: 20,
   },
   username: {
     type: String,
     required: true,
-    minLength: 5,
-    maxLength: 10,
+    minLength: 1,
+    maxLength: 20,
   },
   phone: {
     type: String, // must be a string-- graphQL does not support ints larger than 32-bit
@@ -128,7 +111,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minLength: 10,
+    minLength: 5,
     maxLength: 25,
   },
   profile: {
@@ -181,14 +164,22 @@ const userSchema = new Schema({
   goals: {
     type: [goalSchema],
   },
-  budgets: {
+  budget: {
     type: [budgetSchema],
   },
   subscriptions: {
     type: [subscriptionSchema],
   },
-  itemId: String,
-  accessToken: String,
+  itemId: {
+    type: String,
+    required: true,
+  },
+  accessToken: {
+    type: String,
+    required: true,
+  },
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = {
+  UserModel: mongoose.model('User', userSchema),
+};
