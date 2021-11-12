@@ -38,7 +38,10 @@ function AddGoalModal(props: openclose) {
     updateGoal(null);
     updateCurrent(null);
     updateDescription(null);
-
+    Array.from(document.querySelectorAll('input')).forEach((input) => {
+      // eslint-disable-next-line no-param-reassign
+      input.value = '';
+    });
     handleClose();
   }
 
