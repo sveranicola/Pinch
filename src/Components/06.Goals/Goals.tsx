@@ -27,6 +27,10 @@ function Goals() {
 
   function abrakadabra(data: any) {
     pickedGoal(data);
+    updateName(data.name);
+    updateGoal(data.goalAmount);
+    updateCurrent(data.currentAmount);
+    updateDescription(data.description);
   }
 
   function handleClose() {
@@ -37,7 +41,7 @@ function Goals() {
     const headers = { 'Content-Type': 'application/json' };
     axios.post('/graphql',
       JSON.stringify({
-        query: `query { getUserInfo(id: "618a8a5b6dd51820651700f5") {
+        query: `query { getUserInfo(id: "${sessionStorage.id}") {
           id
           goals {
             name
@@ -49,12 +53,17 @@ function Goals() {
         }`,
       }), { headers })
       .then((result) => {
-        if (result.data.data.getUserInfo.goals.length > 0) {
-          updateGoals(result.data.data.getUserInfo.goals);
-          pickedGoal(result.data.data.getUserInfo.goals[0]);
-        } else {
+        const x = result.data.data.getUserInfo.goals;
+        if (x === null || x === undefined || x.length === 0) {
           updateGoals(exampleGoals.getUserInfo.goals);
           pickedGoal(exampleGoals.getUserInfo.goals[0]);
+        } else {
+          updateGoals(result.data.data.getUserInfo.goals);
+          pickedGoal(result.data.data.getUserInfo.goals[0]);
+          updateName(result.data.data.getUserInfo.goals[0].name);
+          updateGoal(result.data.data.getUserInfo.goals[0].goalAmount);
+          updateCurrent(result.data.data.getUserInfo.goals[0].currentAmount);
+          updateDescription(result.data.data.getUserInfo.goals[0].description);
         }
       })
       .catch((error) => { throw (error); });
@@ -64,7 +73,7 @@ function Goals() {
     const headers = { 'Content-Type': 'application/json' };
     axios.post('/graphql',
       JSON.stringify({
-        query: `query { getUserInfo(id: "618a8a5b6dd51820651700f5") {
+        query: `query { getUserInfo(id: "${sessionStorage.id}") {
           id
           goals {
             name
@@ -89,10 +98,15 @@ function Goals() {
     const currentSG = parseFloat(current);
     const headers = { 'Content-Type': 'application/json' };
 
+    console.log(name);
+    console.log(description);
+    console.log(goalSG);
+    console.log(currentSG);
+
     axios.post('/graphql',
       JSON.stringify({
         query: `mutation {
-        createGoal( id: "618a8a5b6dd51820651700f5"
+        createGoal( id: "${sessionStorage.id}"
         name: "${name}"
         currentAmount: ${currentSG}
         goalAmount: ${goalSG}
@@ -110,7 +124,7 @@ function Goals() {
     axios.post('/graphql',
       JSON.stringify({
         query: `mutation { deleteGoal(
-        id: "618a8a5b6dd51820651700f5"
+        id: "${sessionStorage.id}"
         goalName: "${goalName}") {
           lastName
           }
@@ -129,7 +143,7 @@ function Goals() {
       JSON.stringify({
         query: `mutation{
           updateGoalAmount(
-            id: "618a8a5b6dd51820651700f5"
+            id: "${sessionStorage.id}"
             goalName: "${userPickedGoal.name}"
             original: ${userPickedGoal.currentAmount}
             update: ${newAmount}
@@ -190,7 +204,7 @@ function Goals() {
               ? (
                 <input
                   type="text"
-                  placeholder={userPickedGoal.name}
+                  defaultValue={userPickedGoal.name}
                   onChange={(e) => { updateName(e.target.value); }}
                 />
               ) : userPickedGoal.name}
@@ -215,7 +229,7 @@ function Goals() {
                 ? (
                   <input
                     type="text"
-                    placeholder={userPickedGoal.description}
+                    defaultValue={userPickedGoal.description}
                     onChange={(e) => { updateDescription(e.target.value); }}
                   />
                 ) : userPickedGoal.description}
@@ -226,7 +240,7 @@ function Goals() {
                 ? (
                   <input
                     type="text"
-                    placeholder={userPickedGoal.goalAmount}
+                    defaultValue={userPickedGoal.goalAmount}
                     onChange={(e) => { updateGoal(e.target.value); }}
                   />
                 ) : userPickedGoal.goalAmount}
@@ -237,7 +251,7 @@ function Goals() {
                 ? (
                   <input
                     type="text"
-                    placeholder={userPickedGoal.currentAmount}
+                    defaultValue={userPickedGoal.currentAmount}
                     onChange={(e) => { updateCurrent(e.target.value); }}
                   />
                 ) : userPickedGoal.currentAmount}
@@ -252,7 +266,7 @@ function Goals() {
                   <div>
                     <input
                       type="text"
-                      placeholder="Add amount here"
+                      defaultValue="Add amount here"
                       onChange={(e) => { updateNumber(e.target.value); }}
                     />
                   </div>

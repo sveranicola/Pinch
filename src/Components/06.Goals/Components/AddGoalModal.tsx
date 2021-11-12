@@ -23,7 +23,7 @@ function AddGoalModal(props: openclose) {
     axios.post('/graphql',
       JSON.stringify({
         query: `mutation {
-        createGoal( id: "618a8a5b6dd51820651700f5"
+        createGoal( id: "${sessionStorage.id}"
         name: "${name}"
         currentAmount: ${currentSG}
         goalAmount: ${goalSG}
