@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { GrClose } from 'react-icons/gr';
-import axios from 'axios';
+// import axios from 'axios';
 
 interface ListProps {
+  handleDelete: any,
   name: string;
   goalAmount: number;
   currentAmount: number;
@@ -10,7 +11,7 @@ interface ListProps {
 
 function GoalsList(props: ListProps) {
   const {
-    name, goalAmount, currentAmount,
+    name, goalAmount, currentAmount, handleDelete,
   } = props;
 
   const style = {
@@ -28,21 +29,6 @@ function GoalsList(props: ListProps) {
     style.backgroundColor = 'yellow';
   }
 
-  function handleDelete(goalName: string) {
-    const headers = { 'Content-Type': 'application/json' };
-    axios.post('/graphql',
-      JSON.stringify({
-        query: `mutation { deleteGoal(
-        id: "618a8a5b6dd51820651700f5"
-        goalName: "${goalName}") {
-          lastName
-          }
-        }`,
-      }), { headers })
-      .then((result) => result)
-      .catch((error) => { throw (error); });
-  }
-
   return (
     <div className="a-goal">
       <div className="name-bar">
@@ -51,7 +37,7 @@ function GoalsList(props: ListProps) {
           <div className="status-bar" style={style}> </div>
         </div>
       </div>
-      <div className="icons-edit-delete" role="button" tabIndex={0} onClick={() => handleDelete(name)} onKeyPress={() => handleDelete(name)}>
+      <div className="icons-edit-delete" role="button" tabIndex={0} onClick={handleDelete} onKeyPress={handleDelete}>
         <GrClose size={25} color="#696969" />
       </div>
     </div>

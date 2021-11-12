@@ -60,6 +60,30 @@ function Goals() {
       .catch((error) => { throw (error); });
   }, []);
 
+  function getGoals() {
+    const headers = { 'Content-Type': 'application/json' };
+    axios.post('/graphql',
+      JSON.stringify({
+        query: `query { getUserInfo(id: "618a8a5b6dd51820651700f5") {
+          id
+          goals {
+            name
+            currentAmount
+            goalAmount
+            description
+          }
+          }
+        }`,
+      }), { headers })
+      .then((result) => {
+        if (result.data.data.getUserInfo.goals.length > 0) {
+          updateGoals(result.data.data.getUserInfo.goals);
+          pickedGoal(result.data.data.getUserInfo.goals[0]);
+        }
+      })
+      .catch((error) => { throw (error); });
+  }
+
   function handleNewGoal() {
     const goalSG = parseFloat(goalie);
     const currentSG = parseFloat(current);
@@ -77,7 +101,7 @@ function Goals() {
         }
         }`,
       }), { headers })
-      .then((result) => result)
+      .then(() => { getGoals(); })
       .catch((error) => { throw (error); });
   }
 
@@ -92,7 +116,9 @@ function Goals() {
           }
         }`,
       }), { headers })
-      .then((result) => result)
+      .then(() => {
+        getGoals();
+      })
       .catch((error) => { throw (error); });
   }
 
@@ -112,8 +138,13 @@ function Goals() {
             }
           }`,
       }), { headers })
-      .then((result) => result)
+      .then(() => { getGoals(); })
       .catch((error) => { throw (error); });
+
+    Array.from(document.querySelectorAll('input')).forEach((input) => {
+      // eslint-disable-next-line no-param-reassign
+      input.value = '';
+    });
   }
 
   function handleFullUpdate() {
@@ -139,7 +170,7 @@ function Goals() {
         <div>
           {currentGoals.map((goal: any) => (
             <div key={goal.name} role="button" tabIndex={0} onClick={() => abrakadabra(goal)} onKeyPress={() => abrakadabra(goal)}>
-              <GoalsList {...goal} />
+              <GoalsList handleDelete={() => { handleDelete(goal.name); }} {...goal} />
             </div>
           ))}
         </div>
@@ -231,7 +262,11 @@ function Goals() {
           </div>
         </div>
       </div>
-      <AddGoalModal show={show} handleClose={() => { handleClose(); }} />
+      <AddGoalModal
+        show={show}
+        handleClose={() => { handleClose(); }}
+        getGoals={() => { getGoals(); }}
+      />
     </div>
   );
 }

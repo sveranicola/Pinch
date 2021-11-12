@@ -2,12 +2,13 @@ import * as React from 'react';
 import axios from 'axios';
 
 interface openclose {
+  getGoals: any,
   handleClose: any,
   show: boolean,
 }
 
 function AddGoalModal(props: openclose) {
-  const { handleClose, show } = props;
+  const { handleClose, show, getGoals } = props;
   const showHideClassName = show ? 'modal display-block' : 'modal display-none';
   const [name, updateName] = React.useState<any>();
   const [goal, updateGoal] = React.useState<any>();
@@ -31,7 +32,7 @@ function AddGoalModal(props: openclose) {
         }
         }`,
       }), { headers })
-      .then((result) => result)
+      .then(() => { getGoals(); })
       .catch((error) => { throw (error); });
 
     updateName(null);
