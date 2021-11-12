@@ -89,8 +89,8 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: true,
-    minLength: 5,
-    maxLength: 10,
+    minLength: 1,
+    maxLength: 20,
   },
   phone: {
     type: String, // must be a string-- graphQL does not support ints larger than 32-bit
