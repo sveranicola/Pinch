@@ -53,7 +53,6 @@ function Goals() {
   function handleClose() {
     updateShow(false);
   }
-  console.log(addby);
 
   function handleDelete(goalName: string) {
     const headers = { 'Content-Type': 'application/json' };
@@ -65,6 +64,26 @@ function Goals() {
           lastName
           }
         }`,
+      }), { headers })
+      .then((result) => result)
+      .catch((error) => { throw (error); });
+  }
+
+  function handleUpdate() {
+    const newAmount = parseFloat(addby) + userPickedGoal.currentAmount;
+    const headers = { 'Content-Type': 'application/json' };
+    axios.post('/graphql',
+      JSON.stringify({
+        query: `mutation{
+          updateGoalAmount(
+            id: "618a8a5b6dd51820651700f5"
+            goalName: "${userPickedGoal.name}"
+            original: ${userPickedGoal.currentAmount}
+            update: ${newAmount}
+            fieldOfUpdate: "currentAmount") {
+              firstName
+            }
+          }`,
       }), { headers })
       .then((result) => result)
       .catch((error) => { throw (error); });
@@ -135,7 +154,7 @@ function Goals() {
                 onChange={(e) => { updateNumber(e.target.value); }}
               />
             </div>
-            <button type="submit"> submit </button>
+            <button type="submit" onClick={() => { handleUpdate(); }}> submit </button>
           </div>
         </div>
       </div>
