@@ -1,9 +1,13 @@
+/* eslint-disable no-console */
+/* eslint-disable quote-props */
 /* eslint-disable no-shadow */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { RouteComponentProps, Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { FiAlertTriangle } from 'react-icons/fi';
 import validateLogin from '../SharedComponents/05.Validation/loginCheck';
+import AppContext from '../SharedComponents/06.Context/AppContext';
+import auth from '../../auth/auth';
 
 interface OverviewProps extends RouteComponentProps<{ name: string }> { }
 
@@ -20,6 +24,11 @@ function Login(props: OverviewProps) {
   // eslint-disable-next-line no-unused-vars
   const [err, setErr] = useState<string>('');
   const history = useHistory();
+
+  const {
+    setUserObj,
+    setNav,
+  } = useContext(AppContext);
 
   const allValues: any = {
     // eslint-disable-next-line quote-props
@@ -40,8 +49,8 @@ function Login(props: OverviewProps) {
 
   // eslint-disable-next-line no-unused-vars
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
     const headers = { 'Content-Type': 'application/json' };
-
     const returnedValidation = validateLogin(allValues);
     if (Object.keys(returnedValidation).length === 0) {
       axios.post(
@@ -62,19 +71,31 @@ function Login(props: OverviewProps) {
       )
         .then((response) => {
           const {
-            firstName, lastName, email,
-            id, accessToken, itemId,
+            email, id, accessToken, itemId,
           } = response.data.data.login.user;
-          history.push({
-            pathname: '/home/overview',
-            state: {
-              firstName, lastName, email, id, accessToken, itemId,
-            },
-          });
-          const error = response.data.errors[0].message;
+
+          const input = {
+            'id': id,
+            'email': email,
+            'access_token': accessToken,
+            'item_id': itemId,
+          };
+
+          setUserObj(input);
+
+          let error;
+          if (response.data.errors) {
+            error = response.data.errors[0].message;
+          }
           setErr(error);
+          sessionStorage.setItem('id', id);
+          sessionStorage.setItem('nav', 'true');
+          setNav(true);
+          auth.login(() => {
+            history.push('/home/overview');
+          });
         })
-        .catch(() => { });
+        .catch((error) => console.log('there was an error', error));
     } else {
       setErrors(returnedValidation);
     }
