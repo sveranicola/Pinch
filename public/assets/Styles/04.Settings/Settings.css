@@ -309,6 +309,7 @@
 
 .settings-outer-container .settings-tab-list .settings-tab-list-item:hover {
   color: white;
+  cursor: pointer;
 }
 
 .settings-outer-container .settings-content-container {
