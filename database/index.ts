@@ -78,13 +78,13 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minLength: 1,
-    maxLength: 10,
+    maxLength: 20,
   },
   lastName: {
     type: String,
     required: true,
     minLength: 1,
-    maxLength: 10,
+    maxLength: 20,
   },
   username: {
     type: String,
@@ -111,7 +111,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minLength: 10,
+    minLength: 5,
     maxLength: 25,
   },
   profile: {
