@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { PieChart, Pie, Cell } from 'recharts';
+import {
+  // ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+} from 'recharts';
 
 const COLORS = ['#DEDEDE', '#37B2AA'];
 
@@ -29,6 +34,7 @@ function GoalChart(props: ChartProps) {
         fill="#8884d8"
         paddingAngle={5}
         dataKey="value"
+        label
       >
         {data.map((entry, index) => (
           <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
